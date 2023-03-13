@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="message">Willkommen Timo!</div>
+    <div class="todo"></div>
+    <div class="uhrzeit"></div>
+    <div id="weather"></div>
+    <script>
+        $.getJSON('https://api.openweathermap.org/data/2.5/weather?q=Berlin&appid=dfc1a420c397aeaae9a1227219a2b99d&units=metric', function(data) {
+            var weather = 'Das aktuelle Wetter in ' + data.name + ' ist ' + data.weather[0].description + ' bei einer Temperatur von ' + data.main.temp + '°C.';
+            $('#weather').text(weather);
+        });
+    </script>
+</body>
+</html>
